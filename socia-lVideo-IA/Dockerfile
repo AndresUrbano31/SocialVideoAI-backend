@@ -1,5 +1,6 @@
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
-COPY target/social-video-ia-1.0-SNAPSHOT.jar app.jar
+COPY . .
+RUN ./mvnw package -DskipTests
 EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "target/social-video-ia-1.0-SNAPSHOT.jar"]
